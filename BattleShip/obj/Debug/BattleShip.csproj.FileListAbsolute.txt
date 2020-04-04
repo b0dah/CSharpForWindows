@@ -1,0 +1,9 @@
+C:\CSharp\BattleShip\bin\Debug\BattleShip.exe.config
+C:\CSharp\BattleShip\bin\Debug\BattleShip.exe
+C:\CSharp\BattleShip\bin\Debug\BattleShip.pdb
+C:\CSharp\BattleShip\obj\Debug\BattleShip.Form1.resources
+C:\CSharp\BattleShip\obj\Debug\BattleShip.Properties.Resources.resources
+C:\CSharp\BattleShip\obj\Debug\BattleShip.csproj.GenerateResource.cache
+C:\CSharp\BattleShip\obj\Debug\BattleShip.csproj.CoreCompileInputs.cache
+C:\CSharp\BattleShip\obj\Debug\BattleShip.exe
+C:\CSharp\BattleShip\obj\Debug\BattleShip.pdb

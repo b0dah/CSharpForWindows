@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\BattleShip",
+    "\\BattleShip\\Objects",
+    "\\BattleShip\\Objects\\Extensions",
+    "\\BattleShip\\Objects\\Ships",
+    "\\TicTacToe"
+  ],
+  "SelectedNode": "\\TicTacToe\\Game.cs",
+  "PreviewInSolutionExplorer": false
+}
