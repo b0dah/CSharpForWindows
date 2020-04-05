@@ -14,7 +14,7 @@ namespace BattleShip.Objects {
     }
 
     public enum ShotResult {
-        Miss, 
-        Hit
+        Miss = 'M', 
+        Hit = 'X'
     }
 }

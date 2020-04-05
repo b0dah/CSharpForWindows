@@ -226,6 +226,7 @@
             this.F91 = new System.Windows.Forms.Button();
             this.F90 = new System.Windows.Forms.Button();
             this.enemysBoardLabel = new System.Windows.Forms.Label();
+            this.playAgainButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // G00
@@ -1653,12 +1654,13 @@
             // gameProgressLabel
             // 
             this.gameProgressLabel.AutoSize = true;
-            this.gameProgressLabel.Font = new System.Drawing.Font("Tahoma", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gameProgressLabel.Location = new System.Drawing.Point(771, 942);
+            this.gameProgressLabel.Font = new System.Drawing.Font("Tahoma", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gameProgressLabel.Location = new System.Drawing.Point(820, 950);
             this.gameProgressLabel.Name = "gameProgressLabel";
-            this.gameProgressLabel.Size = new System.Drawing.Size(159, 33);
+            this.gameProgressLabel.Size = new System.Drawing.Size(214, 45);
             this.gameProgressLabel.TabIndex = 103;
             this.gameProgressLabel.Text = "Your Board:";
+            this.gameProgressLabel.Click += new System.EventHandler(this.gameProgressLabel_Click);
             // 
             // F01
             // 
@@ -2865,11 +2867,25 @@
             this.enemysBoardLabel.TabIndex = 203;
             this.enemysBoardLabel.Text = "Enemy\'s Board";
             // 
+            // playAgainButton
+            // 
+            this.playAgainButton.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.playAgainButton.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playAgainButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.playAgainButton.Location = new System.Drawing.Point(1505, 950);
+            this.playAgainButton.Name = "playAgainButton";
+            this.playAgainButton.Size = new System.Drawing.Size(293, 67);
+            this.playAgainButton.TabIndex = 204;
+            this.playAgainButton.Text = "Play Again";
+            this.playAgainButton.UseVisualStyleBackColor = false;
+            this.playAgainButton.Click += new System.EventHandler(this.playAgainButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1850, 1047);
+            this.Controls.Add(this.playAgainButton);
             this.Controls.Add(this.enemysBoardLabel);
             this.Controls.Add(this.F99);
             this.Controls.Add(this.F98);
@@ -3289,6 +3305,7 @@
         private System.Windows.Forms.Button F91;
         private System.Windows.Forms.Button F90;
         private System.Windows.Forms.Label enemysBoardLabel;
+        private System.Windows.Forms.Button playAgainButton;
     }
 }
 

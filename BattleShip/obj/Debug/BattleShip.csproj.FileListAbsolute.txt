@@ -7,3 +7,4 @@ C:\CSharp\BattleShip\obj\Debug\BattleShip.csproj.GenerateResource.cache
 C:\CSharp\BattleShip\obj\Debug\BattleShip.csproj.CoreCompileInputs.cache
 C:\CSharp\BattleShip\obj\Debug\BattleShip.exe
 C:\CSharp\BattleShip\obj\Debug\BattleShip.pdb
+C:\CSharp\BattleShip\obj\Debug\BattleShip.csprojAssemblyReference.cache
