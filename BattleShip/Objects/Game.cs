@@ -21,12 +21,12 @@ namespace BattleShip.Objects {
             
             var firedCell = firstPlayer.FireShot();
             var result = secondPlayer.ProcessShot(firedCell);
-            firstPlayer.ProcessShotResult(firedCell, result);
+            firstPlayer.ProcessShotResult(firedCell, result.Item1);
 
             if (!secondPlayer.HasLost) {
                 firedCell = secondPlayer.FireShot();
                 result = firstPlayer.ProcessShot(firedCell);
-                secondPlayer.ProcessShotResult(firedCell, result);
+                secondPlayer.ProcessShotResult(firedCell, result.Item1);
             }
         }
 

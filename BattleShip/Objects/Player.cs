@@ -136,14 +136,14 @@ namespace BattleShip.Objects {
         }
         
         // Reacting to Shots Fired
-        public ShotResult ProcessShot(Coordinates coordinates) {
+        public Tuple<ShotResult, string> ProcessShot(Coordinates coordinates) {
             var firedCell = GameBoard.Cells.At(coordinates.row, coordinates.column);
-            
+            var message = "";
 
             if (!firedCell.IsOccupied) {
                 Console.WriteLine(Name + " says: \"Miss!\"");
                 firedCell.OccupationType = OccupationType.Miss;
-                return ShotResult.Miss;
+                return new Tuple<ShotResult, string>(ShotResult.Miss, "");
             }
             
             // -> hit the ship
@@ -157,11 +157,11 @@ namespace BattleShip.Objects {
 
             if (ship.IsSunk) {
                 shipsLost++;
-                Console.WriteLine(Name + " says: \"You sunk my " + ship.Name + "!\"");
-                // Console.WriteLine("    Player " + Name + " LOST " + shipsLost);
+                //Console.WriteLine(Name + " says: \"You sunk my " + ship.Name + "!\"");
+                message = "You sunk AI's " + ship.Name + "!\"";
             }
 
-            return ShotResult.Hit;
+            return new Tuple<ShotResult, string> (ShotResult.Hit, message);
         }
 
         public void ProcessShotResult(Coordinates coordinates, ShotResult result) {

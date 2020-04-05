@@ -45,6 +45,10 @@ namespace BattleShip {
         }
 
         private void initializeGame() {
+            foreach (var button in firingBoardButtons) {
+                button.Enabled = true;
+            }
+
             gameProgressLabel.ForeColor = Color.Black;
             gameProgressLabel.Text = "The game is started";
             playAgainButton.Hide();
@@ -79,25 +83,28 @@ namespace BattleShip {
                 // HUMAN'S TURN
                 var humanShotCoordinates = new Coordinates(row, column);
                 var result = ai.ProcessShot(humanShotCoordinates);
-                human.ProcessShotResult(humanShotCoordinates, result);
+                var shotResult = result.Item1;
+                var message = result.Item2;
+                human.ProcessShotResult(humanShotCoordinates, shotResult);
 
-                switch (result) {
+                switch (shotResult) {
                     case ShotResult.Miss:
                         gameProgressLabel.Text = "Miss ...";
                         break;
                     default:
-                        gameProgressLabel.Text = "Hit!";
+                        gameProgressLabel.Text = "Hit!  " + message; 
                         break;
                 }
 
-                redrawFiringBoard(humanShotCoordinates, result, firingBoardButtons);
+                redrawFiringBoard(humanShotCoordinates, shotResult, firingBoardButtons);
 
                 // AI'S TURN
                 if (!ai.HasLost) {
                     var aiShotCoordinates = ai.FireShot();
                     result = human.ProcessShot(aiShotCoordinates);
-                    ai.ProcessShotResult(aiShotCoordinates, result);
-                    redrawGameBoard(aiShotCoordinates, result, gameBoardLabels);
+                    shotResult = result.Item1;
+                    ai.ProcessShotResult(aiShotCoordinates, shotResult);
+                    redrawGameBoard(aiShotCoordinates, shotResult, gameBoardLabels);
 
                     if (human.HasLost) {
                         gameProgressLabel.ForeColor = Color.IndianRed;
@@ -112,7 +119,7 @@ namespace BattleShip {
                 }
             } 
             catch {
-                gameProgressLabel.Text = "Error. Wrong Coordinates!";
+                gameProgressLabel.Text = "Error. Wrong Coordinates! from clicked cell";
             }
         }
 
