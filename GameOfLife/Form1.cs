@@ -14,7 +14,7 @@ namespace GameOfLife {
 
         private const int ROWS = 100;
         private const int COLUMNS = 100;
-        private const int DENSITY = 12;
+        private int DENSITY = 10;
         private const int CELLWIDTH = 6;
 
         private Brush BRUSH = Brushes.Cyan;
@@ -34,18 +34,22 @@ namespace GameOfLife {
         }
 
         private void mainForm_Load(object sender, EventArgs e) {
-            this.Size = new System.Drawing.Size(780, 680);
-            
-            game = new GameOfLife(ROWS, COLUMNS, CELLWIDTH, DENSITY, BRUSH);
-            generation = 0;
-            spawnTimer.Start();
+            this.Size = new System.Drawing.Size(790, 660);
+            restartButton.Text = "Start";
+            densityLabel.Text = densitySlider.Value.ToString();
+            pauseButton.Hide();
+            //game = new GameOfLife(ROWS, COLUMNS, CELLWIDTH, DENSITY, BRUSH);
+            //generation = 0;
+            //spawnTimer.Start();
 
         }
 
 
 
         private void gridPictureBox_Paint(object sender, PaintEventArgs e) {
-            game.drawGrid(e.Graphics);
+            if (game != null) {
+                game.drawGrid(e.Graphics);
+            }
             //g.DrawLine(System.Drawing.Pens.Red, gridPictureBox.Left, gridPictureBox.Top, gridPictureBox.Right, gridPictureBox.Bottom);
             //g.FillRectangle(System.Drawing.Brushes.Red, 10, 10, 100, 100);
         }
@@ -55,8 +59,8 @@ namespace GameOfLife {
             gridStates.Add((bool[,]) game.getGrid().Clone());
 
             // if state repeated
-            if ( gridStates.Count >= 3 && game.Equals(gridStates[gridStates.Count - 3]) || 
-                    gridStates.Count >= 7 && game.Equals(gridStates[gridStates.Count - 7]) ) {
+            if ( gridStates.Count >= 3 && game.gridStateEqualsTo(gridStates[gridStates.Count - 3]) || 
+                    gridStates.Count >= 7 && game.gridStateEqualsTo(gridStates[gridStates.Count - 7]) ) {
                 pauseGame();
                 MessageBox.Show("Game's over");
             }
@@ -70,10 +74,12 @@ namespace GameOfLife {
         }
 
         private void restartGame() {
+            DENSITY = 21 - densitySlider.Value;
             game = new GameOfLife(ROWS, COLUMNS, CELLWIDTH, DENSITY, BRUSH);
             gridStates = new List<bool[,]>();
             generation = 0;
             pauseButton.Text = "Pause";
+            pauseButton.Show();
             pauseStatus = false;
             spawnTimer.Start();
             Refresh();
@@ -92,11 +98,16 @@ namespace GameOfLife {
         }
 
         private void restartButton_Click(object sender, EventArgs e) {
+            restartButton.Text = "Restart";
             restartGame();
         }
 
         private void pauseButton_Click(object sender, EventArgs e) {
             pauseGame();
+        }
+
+        private void densitySlider_Scroll(object sender, EventArgs e) {
+            densityLabel.Text = densitySlider.Value.ToString();
         }
     }
 }
