@@ -1,0 +1,11 @@
+C:\CSharp\BattleshipMultiplayer\bin\Debug\BattleshipMultiplayer.exe
+C:\CSharp\BattleshipMultiplayer\bin\Debug\BattleshipMultiplayer.exe.config
+C:\CSharp\BattleshipMultiplayer\obj\Debug\BattleshipMultiplayer.csprojAssemblyReference.cache
+C:\CSharp\BattleshipMultiplayer\obj\Debug\BattleshipMultiplayer.ConnectionForm.resources
+C:\CSharp\BattleshipMultiplayer\obj\Debug\BattleshipMultiplayer.GameForm.resources
+C:\CSharp\BattleshipMultiplayer\obj\Debug\BattleshipMultiplayer.Properties.Resources.resources
+C:\CSharp\BattleshipMultiplayer\obj\Debug\BattleshipMultiplayer.csproj.GenerateResource.cache
+C:\CSharp\BattleshipMultiplayer\obj\Debug\BattleshipMultiplayer.csproj.CoreCompileInputs.cache
+C:\CSharp\BattleshipMultiplayer\obj\Debug\BattleshipMultiplayer.exe
+C:\CSharp\BattleshipMultiplayer\obj\Debug\BattleshipMultiplayer.pdb
+C:\CSharp\BattleshipMultiplayer\bin\Debug\BattleshipMultiplayer.pdb
