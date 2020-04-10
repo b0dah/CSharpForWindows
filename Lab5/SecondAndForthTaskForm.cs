@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Lab5 {
-    public partial class SecondAndForthTaskForm : Form {
+    public partial class SecondTaskForm : Form {
 
         private Color color;
         private int delta = 1;
@@ -25,7 +25,7 @@ namespace Lab5 {
         private bool increasingRadiusMode = true;
 
 
-        public SecondAndForthTaskForm() {
+        public SecondTaskForm() {
             InitializeComponent();
 
             this.Size = new System.Drawing.Size(600, 500);
@@ -60,8 +60,8 @@ namespace Lab5 {
                         increasingRadiusMode = true;
                 }
             }
-
             pictureBox.Refresh();
+
         }
 
         private void repaintButton_Click(object sender, EventArgs e) {

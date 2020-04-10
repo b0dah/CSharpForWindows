@@ -12,3 +12,4 @@ C:\CSharp\Lab5\obj\Debug\Lab5.SelectionForm.resources
 C:\CSharp\Lab5\obj\Debug\Lab5.SecondAndForthTaskForm.resources
 C:\CSharp\Lab5\obj\Debug\Lab5.ThirdTaskForm.resources
 C:\CSharp\Lab5\obj\Debug\Lab5.FifthTaskForm.resources
+C:\CSharp\Lab5\obj\Debug\Lab5.SecondTaskForm.resources
