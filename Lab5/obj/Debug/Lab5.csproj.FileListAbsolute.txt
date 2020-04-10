@@ -1,0 +1,14 @@
+C:\CSharp\Lab5\bin\Debug\Lab5.exe.config
+C:\CSharp\Lab5\bin\Debug\Lab5.exe
+C:\CSharp\Lab5\bin\Debug\Lab5.pdb
+C:\CSharp\Lab5\obj\Debug\Lab5.csprojAssemblyReference.cache
+C:\CSharp\Lab5\obj\Debug\Lab5.Properties.Resources.resources
+C:\CSharp\Lab5\obj\Debug\Lab5.csproj.GenerateResource.cache
+C:\CSharp\Lab5\obj\Debug\Lab5.csproj.CoreCompileInputs.cache
+C:\CSharp\Lab5\obj\Debug\Lab5.exe
+C:\CSharp\Lab5\obj\Debug\Lab5.pdb
+C:\CSharp\Lab5\obj\Debug\Lab5.FirstTaskForm.resources
+C:\CSharp\Lab5\obj\Debug\Lab5.SelectionForm.resources
+C:\CSharp\Lab5\obj\Debug\Lab5.SecondAndForthTaskForm.resources
+C:\CSharp\Lab5\obj\Debug\Lab5.ThirdTaskForm.resources
+C:\CSharp\Lab5\obj\Debug\Lab5.FifthTaskForm.resources

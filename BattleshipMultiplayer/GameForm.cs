@@ -28,6 +28,9 @@ namespace BattleshipMultiplayer {
         // Connection
         private Socket socket;
         private BackgroundWorker messageReceiver = new BackgroundWorker();
+
+        private BackgroundWorker moveResultMessageReceiver = new BackgroundWorker();
+
         private TcpListener server = null;
         private TcpClient client;
 
@@ -52,6 +55,9 @@ namespace BattleshipMultiplayer {
 
             // connection
             messageReceiver.DoWork += MessageReceiver_DoWork;
+            //CheckForIllegalCrossThreadCalls = false;
+
+            moveResultMessageReceiver.DoWork += MoveResultMessageReceiver_DoWork;
             CheckForIllegalCrossThreadCalls = false;
 
             if (isHost) {
@@ -77,7 +83,27 @@ namespace BattleshipMultiplayer {
         }
 
 
+
+
         // CONNECTION
+        private void MoveResultMessageReceiver_DoWork(object sender, DoWorkEventArgs e) {
+            byte[] bufferToReceive = new byte[4];
+            socket.Receive(bufferToReceive);
+
+            int row = bufferToReceive[0];
+            int column = bufferToReceive[1];
+            ShotResult resultGotten = (bufferToReceive[2] == 1) ? ShotResult.Hit : ShotResult.Miss;
+            bool enemyHasLost = (bufferToReceive[3] == 1);
+
+            redrawFiringBoard(new Coordinates(row, column), resultGotten, firingBoardButtons);
+
+            if (enemyHasLost) {
+                gameProgressLabel.ForeColor = Color.Yellow;
+                gameProgressLabel.Text = "You won !!!";
+                finishGame();
+            }
+        }
+    
         private void MessageReceiver_DoWork(object sender, DoWorkEventArgs e) {
             freezeFiringBoard();
             turnLabel.Text = "Opponent's\n turn!";
@@ -99,12 +125,20 @@ namespace BattleshipMultiplayer {
             redrawGameBoard(opponentsShotCoordinates, shotResult, gameBoardLabels);
 
             // Send Shot result
-            /*var playerHit = (shotResult == ShotResult.Hit) ? (byte)1 : (byte)0;
+            var row = buffer[0];
+            var column = buffer[1];
+            var playerHit = (shotResult == ShotResult.Hit) ? (byte)1 : (byte)0;
             var playerHasLost = (player.HasLost) ? (byte)1 : (byte)0;
 
-            byte[] bufferToSend = { playerHit, playerHasLost };
+            byte[] bufferToSend = { row, column, playerHit, playerHasLost };
             socket.Send(bufferToSend);
-            messageReceiver.RunWorkerAsync();*/
+            moveResultMessageReceiver.RunWorkerAsync();
+
+            if (player.HasLost) {
+                gameProgressLabel.ForeColor = Color.IndianRed;
+                gameProgressLabel.Text = "You lost ... Good Luck next time";
+                finishGame();
+            }
         }
 
 
