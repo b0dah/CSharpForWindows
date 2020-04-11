@@ -1,5 +1,5 @@
 ﻿namespace Lab5 {
-    partial class SecondTaskForm {
+    partial class SecondAndForthTaskForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
